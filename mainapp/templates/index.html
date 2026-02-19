@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+<h1 class="text-center mt-4 mb-3 fw-bold">The Blogs</h1>
+<h4 class="text-center my-4 my-4">View Daily Latest Blogs on Blogify And stay updated</h4>
+<div class="row mt-5">
+    <div class="col-sm-10 mx-auto">
+        <div class="row my-3">
+            {% for b in blogs %}
+            <div class="col-sm-6 my-2">
+                <div class="card h-100">
+                    {% if b.image %}
+                    <img src="{{b.image.url}}" style="height: 400px !important;" class="card-img-top blog-img" alt="">
+                    {% else %}
+                    <img src="{% static 'img/blogs.jpeg' %}" class="card-img-top blog-img" alt="">
+                    {% endif %}
+                    <div class="card-body">
+                        <h4 class="card-title mb-4">{{b.title}}</h4>
+                        <h6 class="mb-4">{{b.subtitle}}</h6>
+                        <p class="card-text pb-5">{{b.content|truncatechars:'100'}}</p>
+                        <a href="{% url 'readblog' id=b.id %}" class="position-absolute bottom-0 end-0 btn btn-primary me-3 mt-5 mb-3">Read More<i class="fa-solid fa-right-to-bracket text-light px-3"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

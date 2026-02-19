@@ -1,0 +1,169 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <!-- Navbar Start -->
+        <div class="row">
+            <div class="col-sm-12 px-0">
+                <nav class="navbar bg-body-tertiary p-0">
+                    <div class="container-fluid bg-nav py-2">
+                        <a class="btn btn-light ms-3" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+                            aria-controls="offcanvasExample">
+                            <i class="fa-solid fa-bars"></i>
+                        </a>
+                        <a href="{% url 'index' %}" class="nav-link text-light fs-3 fw-bold"><i>__Blogify__</i></a>
+                        <a href="{% url 'login' %}"
+                            class="btn btn-light text-dark fw-bold px-4 me-3 rounded-pill log">Login</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- Navbar end -->
+
+        <!-- Offcanvas start -->
+        <div class="offcanvas offcanvas-start off" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+            id="offcanvasExample" aria-labelledby="offcanvasScrollingLabel">
+            <div class="offcanvas-header bg-nav">
+                <a class="offcanvas-title text-light fw-bold fs-3 nav-link" id="offcanvasScrollingLabel">BlogiFy</a>
+                <button type="button" class="btn btn-close bg-light" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body bg-dark">
+                <ul type="none" class="mt-5 text-light">
+                    <li class="px-5 py-2 my-2 fw-bold act"><a href="{% url 'index' %}" class="nav-link b">HOME</a> </li>
+                    <li class="px-5 py-2 my-2 fw-bold act"><a href="{% url 'index' %}" class="nav-link b">ABOUT US</a>
+                    </li>
+                    <li class="px-5 py-2 my-2 fw-bold act"><a href="{% url 'index' %}" class="nav-link b">SERVICES</a>
+                    </li>
+                    <li class="px-5 py-2 my-2 fw-bold act"><a href="{% url 'index' %}" class="nav-link b">GALLERY</a>
+                    </li>
+                    <li class="px-5 py-2 my-2 fw-bold act"><a href="{% url 'index' %}" class="nav-link b">CONTACT US</a>
+                    </li>
+                </ul>
+                <div style="margin-top: 200px;" class="bg-light rounded-pill fw-bold py-2"> <a href="{% url 'login' %}"
+                        class="nav-link text-center text-dark fs-5">Login</a> </div>
+            </div>
+
+        </div>
+
+        <!-- Offcanvas end -->
+
+        {% block main %}
+        {% endblock %}
+
+        <!-- footer start -->
+        <div class="row pb-4" style="background-color: black;">
+            <div class="col-lg-11 mx-auto border-bottom">
+                <div class="row">
+                    <div class="col-12 col-md-4 col-lg-3 mt-md-4">
+                        <p class="text-light mt-4 text-center text-lg-start">Sector J near Gudamba Thana Kursi Road
+                            Lucknow 226202 <br><br> <i class="fa-solid fa-phone pe-2 text-warning"></i> +91
+                            7234039012
+                            <br> <i class="fa-solid fa-phone pe-2 text-warning"></i> +91 8858608898 <br><br> <i
+                                class="fa-solid fa-envelope-open-text pe-2 text-warning"></i>
+                            abhishekrauniyar004@gmail.com
+                        </p>
+
+                    </div>
+                    <div class="col-4 col-md-3 col-lg-2">
+                        <div class="cen">
+                            <h3 class="text-warning mt-5 ms-sm-5">Services</h3>
+                            <ul type="none">
+                                <li class="ms-sm-3 mt-4 lin"><a href="" class="text-light"
+                                        style="text-decoration: none;">Websites </a></li>
+                                <li class="ms-sm-3 mt-2 lin"><a href="" class="text-light"
+                                        style="text-decoration: none;">Web pages</a></li>
+                                <li class="ms-sm-3 mt-2 lin"><a href="" class="text-light"
+                                        style="text-decoration: none;">Landing Pages</a></li>
+                                <li class="ms-sm-3 mt-2 lin"><a href="" class="text-light"
+                                        style="text-decoration: none;">Apps</a></li>
+                                <li class="ms-sm-3 mt-2 lin"><a href="" class="text-light"
+                                        style="text-decoration: none;">Shorts</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-3 col-md-2 col-lg-2">
+                        <div class="cen">
+                            <h3 class="text-warning mt-5 ms-sm-5">More</h3>
+                            <ul type="none">
+                                <li class="ms-sm-3 mt-4 lin"><a href="" class="text-light"
+                                        style="text-decoration: none;">About Us</a>
+                                </li>
+                                <li class="ms-sm-3 mt-2 lin"><a href="" class="text-light"
+                                        style="text-decoration: none;">FAQs</a></li>
+                                <li class="ms-sm-3 mt-2 lin"><a href="" class="text-light"
+                                        style="text-decoration: none;">Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-5 col-md-3 col-lg-2">
+                        <div class="cen">
+                            <h3 class="text-warning mt-5 ms-sm-5">Categories</h3>
+                            <ul type="none">
+                                <li class="ms-sm-3 mt-4 lik"><a href="" class="text-light"
+                                        style="text-decoration: none;">Navbars </a></li>
+                                <li class="ms-sm-3 mt-2 lik"><a href="" class="text-light"
+                                        style="text-decoration: none;">Cards</a></li>
+                                <li class="ms-sm-3 mt-2 lik"><a href="" class="text-light"
+                                        style="text-decoration: none;">Crousels</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-3" align="center">
+                        <h3 class="text-warning mt-5">Social Media Links</h3>
+                        <p class="text-light fs-3 mt-3">
+                            <i class="fa-brands fa-instagram"></i>
+                            <i class="fa-brands fa-facebook ms-2"></i>
+                            <i class="fa-brands fa-square-x-twitter ms-2"></i>
+                            <i class="fa-brands fa-youtube ms-2"></i>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="background-color: black;">
+            <div class="col-sm-11 mx-auto">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="text-light text-center text-md-start pb-md-2">2026 <span class="text-warning fs-5">
+                                &copy;</span> BlogiFy. All Rights Reserved
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="text-light text-center text-md-end">DESIGNED WITH
+                            <i class="fa-solid fa-heart fa-beat fs-5 text-warning mx-2"></i> BY ABHI
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- footer end -->
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>

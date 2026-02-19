@@ -1,0 +1,43 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+{% block admin %}
+<div class="row">
+    <div class="col-sm-12 p-5 mx-auto shadow-lg" style="background-color: white;">
+        <h2 class="mb-5 fw-bold text-center ">VIEW BLOG</h2>
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Subtitle</th>
+                <th>Author</th>
+                <th>Content</th>
+                <th>Image</th>
+                <th>Published_At</th>
+                <th>Actions</th>
+            </tr>
+            {% for b in blogs %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{b.title|truncatechars:'10'}}</td>
+                <td>{{b.subtitle|truncatechars:'10'}}</td>
+                <td>{{b.author}}</td>
+                <td>{{b.content|truncatechars:'50'}}</td>
+                <td>
+                    {% if b.image %}
+                    <img src="{{b.image.url}}" alt="" height="50px" width="100px">
+                    {% else %}
+                    No image
+                    {% endif %}
+                </td>
+                <td>{{b.published_at}}</td>
+
+                <td class="d-flex">
+                    <a href="{% url 'editblog' id=b.id %}" class="me-2 btn btn-outline-info rounded-3">Edit</a>
+                    <a href="{% url 'delete' id=b.id %}" class="btn btn-outline-info rounded-3">Del</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}
