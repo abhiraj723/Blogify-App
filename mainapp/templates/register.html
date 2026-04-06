@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+<div class="row my-3 my-sm-3">
+            <div class="col-md-4 shadow p-5 mx-auto rounded-3">
+                <h3 class="text-center text-dark ">
+                    Sign up
+                </h3>
+                <h6 class="text-center text-dark mb-4">Have an account ? <a href="{% url 'login' %}">Sign in</a></h6>
+                
+                
+                <form method="post">
+                    {% csrf_token %}
+                    <i class="fa-solid fa-user ps-2 pe-4"></i><label for="user" class="mb-2 fw-bold">Uertype</label>
+                    <select name="usertype" required id="usertype" class="form-select mb-3">
+                        <option value="" selected disabled>-- Select category --</option>
+                        <option value="reader">Reader</option>
+                    </select>
+                    <i class="fa-solid fa-envelope-open-text ps-2 pe-4"></i><label for="email" class="mb-1 fw-bold">Email</label>
+                    <input type="email" required name="email" id="email" class="form-control mb-3">
+                    <i class="fa-solid fa-user ps-2 pe-4"></i><label for="name" class="mb-1 fw-bold">Full name</label>
+                    <input type="text" required name="name" id="name" class="form-control mb-3">
+                    <i class="fa-solid fa-venus-double ps-2 pe-4"></i><label for="gender" class="mb-1 fw-bold">Gender</label>
+                    <select type="text" required name="gender" id="gender" class="form-select mb-3">
+                        <option value="" selected disabled>--Select Gender--</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="na" >Others</option>
+                    </select>
+                    
+                    <i class="fa-solid fa-lock ps-2 pe-4"></i><label for="pass" class="mb-1 fw-bold">Password</label>
+                    <input type="password" required name="password" id="pass" class="form-control mb-2">
+                    <div class="d-flex justify-content-between mb-4 mx-2">
+                        <span><input type="checkbox" name="" id=""> Remeber me</span>
+                        <a href="" style="text-decoration: none;">Forgot Password?</a>
+                    </div>
+                    <button class="btn btn-primary w-100 rounded-pill" type="submit">Login</button>
+                </form>
+
+            </div>
+        </div>
+    
+{% endblock %}
+{% block title %}
+Login
+{% endblock %}

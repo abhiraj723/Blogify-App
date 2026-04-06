@@ -7,6 +7,17 @@ class LoginInfo(models.Model):
     user = models.CharField(max_length=100,unique=True)
     password = models.CharField(max_length=256)
 
+class Reader(models.Model):
+    GENDER_CHOICES = (
+        ('male','Male'),
+        ('female','Female'),
+        ('Na','prefer not to say')
+    )
+    user = models.OneToOneField(LoginInfo, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    gender = models.CharField(max_length=20, choices=GENDER_CHOICES)
+
+
 class Blog(models.Model):
     title = models.CharField(max_length=200)
     subtitle = models.CharField(max_length=300)

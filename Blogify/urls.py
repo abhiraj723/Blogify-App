@@ -26,10 +26,13 @@ urlpatterns = [
     path('',views.index,name='index'),
     path('admindash',views.admindash,name='admindash'),
     path('login/',views.login_view,name='login'),
+    path('register/',views.register,name='register'),
+    path('readerdash/',views.readerdash,name='readerdash'),
     path('addblog/',views.addblog,name='addblog'),
     path('viewblog/',views.viewblog,name='viewblog'),
     path('readblog/<id>',views.readblog,name='readblog'),
     path('logout/',views.logout_view,name='logout'),
+    path('readerlogout/',views.readerlogout,name='readerlogout'),
     path('delete/<id>',views.delete_blog,name='delete'),
     path('editblog/<id>',views.editblog,name='editblog'),
 ]
