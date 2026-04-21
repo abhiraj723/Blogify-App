@@ -1,0 +1,92 @@
+.das {
+    transition: .2s ease;
+}
+.das:hover {
+    background-color: white;
+    color: goldenrod !important;
+    border-radius: 25px;
+    transition: .1s ease;
+}
+.act {
+    transition: .3s ease;
+}
+.act:hover {
+    background-color: white;
+    color: black;
+    border-radius: 25px;
+}
+
+@media (max-width:576px) {
+    .log {
+        display: none;
+    }
+    .blog-img{
+        height: 200px !important;
+    }
+    .back{
+        display: none;
+    }
+}
+@media (max-width:991px) {
+    .sidebar {
+        display: none;
+    }
+    .shw{
+        display: inline !important;
+    }
+    #sh{
+        display: none;
+    }
+}
+.header {
+    height: 8vh;
+    /* background-color: beige; */
+}
+.main {
+    height: 92vh;
+}
+/* .sidebar {
+    background-color: aqua;
+    width: 5%;
+    overflow: hidden;
+    transition: .8s ease;
+} */
+/* .sidebar:hover{
+    width: 16.66%;
+} */
+.logout{
+    margin-top: 340px;
+}
+.main-content{
+    /* min-height: 100vh !important; */
+    overflow-y: scroll;
+}
+.back{
+    padding: 15px 43px 15px 20px !important;
+    transform: rotate(180deg) ;
+    top:100px;
+    left: 150px;
+    background-color: black;
+    color: white;
+}
+.bg-nav{
+    background-color: rgb(23, 56, 76) !important;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.dash-img{
+    height: 200px;
+    overflow: hidden;
+}
+
+.dash-panel{
+    background: linear-gradient(to right, skyblue,rgb(37, 134, 186));
+    color: white;
+}
+
+body{
+    background-color: rgb(212, 212, 212);
+}

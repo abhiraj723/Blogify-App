@@ -130,7 +130,7 @@ def readerlogout(request):
         return redirect('login')
 
 def readblog(request, id):
-    if 'readerid' not in request.session:
+    if 'readerid' not in request.session or 'adminid' not in request.session:
         messages.error(request,"Login first to view full details.")
         return redirect('login')
     userid = request.session.get('adminid') or request.session.get('readerid')

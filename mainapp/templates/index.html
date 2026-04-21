@@ -18,6 +18,7 @@
                         <h4 class="card-title mb-4">{{b.title}}</h4>
                         <h6 class="mb-4">{{b.subtitle}}</h6>
                         <p class="card-text pb-5">{{b.content|truncatechars:'100'}}</p>
+                        
                         <a href="{% url 'readblog' id=b.id %}" class="position-absolute bottom-0 end-0 btn btn-primary me-3 mt-5 mb-3">Read More<i class="fa-solid fa-right-to-bracket text-light px-3"></i></a>
                     </div>
                 </div>
