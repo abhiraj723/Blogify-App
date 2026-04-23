@@ -33,14 +33,16 @@ def login_view(request):
         try:
             users = LoginInfo.objects.get(user=username, password=password)
             if users and users.usertype == "admin":
+                messages.success(request, 'Logged In Successfully')
                 request.session['adminid'] = users.user
                 request.session.set_expiry(0)
-                messages.success(request, 'Logged In Successfully')
-                return redirect('admindash')
+                
+                return redirect('index')
             if users and users.usertype == "reader":
+                messages.success(request, 'Logged In Successfully')
                 request.session['readerid'] = users.user
                 request.session.set_expiry(0)
-                messages.success(request, 'Logged In Successfully')
+                
                 return redirect('index')
         except LoginInfo.DoesNotExist:
             messages.error(request, "Invalid Credentials")
@@ -129,10 +131,7 @@ def readerlogout(request):
         messages.success(request, "Logged Out SuccessFully")
         return redirect('login')
 
-def readblog(request, id):
-    if 'readerid' not in request.session or 'adminid' not in request.session:
-        messages.error(request,"Login first to view full details.")
-        return redirect('login')
+def readblog(request, id):        
     userid = request.session.get('adminid') or request.session.get('readerid')
     user = None
     if userid:
@@ -141,8 +140,9 @@ def readblog(request, id):
             user = obj
         if obj.usertype == "reader":
             user = Reader.objects.get(user=obj)
-    
-
+    else:
+        messages.error(request,"Login first to view full details.")
+        return redirect('login')
     blog = Blog.objects.get(id=id)
     return render(request, 'readblog.html', {'blogs':blog,'user':user})
 
